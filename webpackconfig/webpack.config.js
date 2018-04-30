@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const htmlPlugin = new HtmlWebPackPlugin({
   template: path.resolve(__dirname+"/../src/index.html"),
@@ -11,9 +13,11 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 7300,
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.join("./dist/"),
   },
   module: {
+    
     rules: [
       {
         test: /\.js$/,
@@ -44,5 +48,8 @@ module.exports = {
   },
   plugins: [htmlPlugin,
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()]
+    new webpack.HotModuleReplacementPlugin(),
+    new ErrorOverlayPlugin(),
+  ],
+  devtool: "source-map",
 };

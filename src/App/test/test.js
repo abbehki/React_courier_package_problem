@@ -11,7 +11,7 @@ class Test extends React.Component{
         }
     }
 
-    callfunction(e){
+    callfunction=(e)=>{
         const {dispatch} =this.props;
         dispatch({type:"USER_FETCH_REQUESTED",data:"hey"})
         history.push('/');
@@ -26,8 +26,7 @@ class Test extends React.Component{
         );
     }
 }
-const mapStateToProps = (state) => {
-    return {
-    };
-  };
-  export default connect(mapStateToProps)(Test);
+const mapStateToProps = ({}) =>
+    ({}); 
+
+  export default connect(mapStateToProps,null,null,{pure:false})(Test);

@@ -7,22 +7,44 @@ class Poster extends React.Component{
     constructor(props){
         super(props);
         this.state={
-
+                a:0
         }
     }
-    render(){
-        console.log(this.props.poster)
+    componentWillMount() {
+       console.log("will mount")
+      }
+    
+      componentDidMount() {
+        console.log("Did mount")
+      }
+
+    componentWillReceiveProps(newprops){
+        console.log("component will receive props");
+        if(newprops.poster){
+            console.log("recieve",newprops.poster)
+        }
+    }
+    handleclick=(e)=>{
+        console.log("On click");
+        this.setState({
+                a:2
+        })
+    }
+    render(){        
         return(
             <div>
                 ABHAY BEHKI!!
                 <Link to={`/test`}>Test</Link>
-            </div>
+                <div onClick={this.handleclick.bind(this)}>dasd</div>
+                {
+                    this.props.poster && this.props.poster.flag
+                }
+                </div>
         )
     }
+  
 }
-const mapStateToProps = (state) => {
-    return {
-        poster:state.poster_reducer
-    };
-  };
-  export default connect(mapStateToProps)(Poster);
+const mapStateToProps = ({poster}) =>
+    ({poster}); 
+
+  export default connect(mapStateToProps,null,null,{pure:false})(Poster);

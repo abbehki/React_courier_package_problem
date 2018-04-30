@@ -2,14 +2,14 @@
 const poster_reducer = (state = {}, action) => {
     let newState=Object.assign({},state);
     switch (action.type) {
-    case "DATA":
-    newState.flag=action.data;
-    return newState ;
-    case "ERROR":
-    console.log(action.data)
-    return newState;
+      case "DATA":
+        console.log('DATA');
+        newState.flag=action.data;
+        return newState ;
+      case "ERROR":
+        return newState;
       default:
-        return state
+          return state
     }
   }
   

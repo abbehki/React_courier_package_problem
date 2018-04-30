@@ -9,6 +9,9 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './root_reducer';
 import saga from './root_saga';
 
+import importedComponent from 'react-imported-component';
+import Loading from './loading';
+
 
 import Poster from './App/poster/poster';
 import Test from './App/test/test';
@@ -16,6 +19,19 @@ import Test from './App/test/test';
 if (module.hot) {
     module.hot.accept()
 }
+
+// const AsyncDynamicPAge = importedComponent(
+//     () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
+//     {
+//       LoadingComponent: Loading
+//     }
+//   );
+//   const AsyncNoMatch = importedComponent(
+//     () => import(/* webpackChunkName:'NoMatch' */ './NoMatch'),
+//     {
+//       LoadingComponent: Loading
+//     }
+//   );
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -29,8 +45,10 @@ const Index=()=>{
     <Provider store={store}>
         <Router history={history}>
             <Switch>
-                <Route exact path="/" component={Poster} />
-                <Route exact path="/test" component={Test} />
+                <Route exact path="/" component={Poster}/>
+                <Route exact path="/test" component={Test}/>
+                {/* <Route exact path="/dynamic" component={AsyncDynamicPAge} />
+                <Route component={AsyncNoMatch} /> */}
             </Switch>
         </Router>
     </Provider>

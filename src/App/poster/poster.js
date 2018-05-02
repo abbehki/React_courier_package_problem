@@ -10,19 +10,20 @@ class Poster extends React.Component{
                 a:0
         }
     }
-    componentWillMount() {
+
+    UNSAFE_componentWillMount() {
        console.log("will mount")
       }
     
-      componentDidMount() {
+    componentDidMount() {
         console.log("Did mount")
       }
-
-    componentWillReceiveProps(newprops){
-        console.log("component will receive props");
-        if(newprops.poster){
-            console.log("recieve",newprops.poster)
-        }
+   static getDerivedStateFromProps(newprops,prevState){
+        console.log(newprops.poster);
+        console.log(prevState);
+        return{
+            a:newprops.poster.flag
+        };
     }
     handleclick=(e)=>{
         console.log("On click");
@@ -30,8 +31,31 @@ class Poster extends React.Component{
                 a:2
         })
     }
-    render(){        
+
+    divfunction=(e)=>{
+      return(
+          <React.Fragment>
+          <div>
+              as
+          </div>
+          <div>
+              fdsad
+            </div>
+            </React.Fragment>
+      );
+    }
+    
+    render(){
+       console.log("--->",this.state.a)
         return(
+        <React.Fragment>      
+            <style>{`
+                div{
+                  color:red;
+                }`
+              }
+            </style> 
+
             <div>
                 ABHAY BEHKI!!
                 <Link to={`/test`}>Test</Link>
@@ -39,12 +63,16 @@ class Poster extends React.Component{
                 {
                     this.props.poster && this.props.poster.flag
                 }
+                {
+                    this.divfunction()
+                }
                 </div>
-        )
+        </React.Fragment>
+        );
     }
   
 }
 const mapStateToProps = ({poster}) =>
     ({poster}); 
 
-  export default connect(mapStateToProps,null,null,{pure:false})(Poster);
+  export default connect(mapStateToProps)(Poster);

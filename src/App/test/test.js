@@ -19,10 +19,22 @@ class Test extends React.Component{
 
     render(){
         return (
+        <React.Fragment>
+            <style>
+                {
+                    `
+                    p{
+                        color:green;
+                    }
+                    `
+                }
+            </style>
             <div>
                 test
                 <div onClick={this.callfunction.bind(this)}>clickme</div>
+                <p>Whats up man!!!</p>
             </div>
+        </React.Fragment>
         );
     }
 }

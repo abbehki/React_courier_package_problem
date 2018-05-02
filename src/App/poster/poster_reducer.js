@@ -3,7 +3,6 @@ const poster_reducer = (state = {}, action) => {
     let newState=Object.assign({},state);
     switch (action.type) {
       case "DATA":
-        console.log('DATA');
         newState.flag=action.data;
         return newState ;
       case "ERROR":

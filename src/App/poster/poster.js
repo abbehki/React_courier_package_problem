@@ -5,11 +5,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import IMAGE from '../../image/download.jpg';
 
-type State={
-  value:string
-}
-
-class Poster extends Component <null,State>{
+class Poster extends Component{
     constructor(props){
         super(props);
         this.state={

@@ -15,6 +15,7 @@ import Loading from './loading';
 
 import Poster from './App/poster/poster';
 import Test from './App/test/test';
+import Maps from './App/maps/maps';
 
 if (module.hot) {
     module.hot.accept()
@@ -49,6 +50,7 @@ const Index=()=>{
                 <Route exact path="/test" component={Test}/>
                 {/* <Route exact path="/dynamic" component={AsyncDynamicPAge} />
                 <Route component={AsyncNoMatch} /> */}
+                <Route exact path="/maps" component={Maps}/>
             </Switch>
         </Router>
     </Provider>

@@ -1,9 +1,15 @@
-import React from 'react';
+
+import React,{Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import IMAGE from '../../image/download.jpg';
 
-class Poster extends React.Component{
+type State={
+  value:string
+}
+
+class Poster extends Component <null,State>{
     constructor(props){
         super(props);
         this.state={
@@ -48,7 +54,7 @@ class Poster extends React.Component{
     render(){
        console.log("--->",this.state.a)
         return(
-        <React.Fragment>      
+        <React.Fragment>  
             <style>{`
                 div{
                   color:red;
@@ -59,13 +65,14 @@ class Poster extends React.Component{
             <div>
                 ABHAY BEHKI!!
                 <Link to={`/test`}>Test</Link>
-                <div onClick={this.handleclick.bind(this)}>dasd</div>
+                <div  onClick={this.handleclick.bind(this)}>dasd</div>
                 {
                     this.props.poster && this.props.poster.flag
                 }
                 {
                     this.divfunction()
                 }
+                    <img src={IMAGE} alt="{IMAGE}" />
                 </div>
         </React.Fragment>
         );

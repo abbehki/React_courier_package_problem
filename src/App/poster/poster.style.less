@@ -1,5 +1,50 @@
-.selection-item{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
+.container{
+    .header-nav{
+        padding: 10px;
+        background-color: red;
+        position: fixed;
+        width: 100%;
+    }
+    .data-container{
+        padding: 30px;
+        .header-title{
+            padding-top:50px;        
+            display: flex;
+            align-items: center;
+            .align-padding{
+                width:20%; 
+            }
+        }   
+        .contain-data{
+            margin-top:10px;        
+            .selection-item{
+                display:flex;
+                align-items: center;
+            }
+            .align-padding{
+                width:20%; 
+            }
+        }   
+    }
+ 
+    .button-place-order{
+        position: fixed;
+        bottom: 0;
+        position: fixed;
+        bottom: 0;
+        left: 45%;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        outline: none;        
+    }
+    .button-disable{
+        display: none;
+    }
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
 }
